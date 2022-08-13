@@ -7,7 +7,6 @@ export default createGlobalStyle`
         box-sizing: border-box;
         font-family: 'Montserrat', sans-serif;
         color: var(--primary-text);
-
     }
     :root {
         font-size: 62.5%;
@@ -39,23 +38,6 @@ export default createGlobalStyle`
         border: none;
         background: none;
         cursor: pointer;
-    }
-
-    .opacity-text {
-        color: var(--primary-text);
-        opacity: 0.3;
-    }
-
-    .btn {
-        background-color: var(--yellow);
-        padding: 2rem 1rem;
-        color: #fffff1;
-        border: 1px solid var(--yellow);
-        transition: .3s;
-    }
-    .btn:hover {
-        background-color: transparent;
-        color: var(--yellow);
     }
 
     img {

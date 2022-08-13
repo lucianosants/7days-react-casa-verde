@@ -39,9 +39,15 @@ export default createGlobalStyle`
         background: none;
         cursor: pointer;
     }
-
     img {
         width: 100%;
+    }
+    h2::selection,
+    h4::selection,
+    p::selection,
+    a::selection {
+        background-color: var(--yellow);
+        color: var(--primary-text);
     }
 `;
 
@@ -49,5 +55,4 @@ export const Container = styled.div`
     max-width: 120rem;
     margin: 0 auto;
     padding: 1.2rem .5rem;
-
 `;

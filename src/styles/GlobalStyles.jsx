@@ -12,6 +12,7 @@ export default createGlobalStyle`
         font-size: 62.5%;
         --white: #fff1f1;
         --yellow: #FFCB47;
+        --yellow-disabled: #bd9530;
         --green: #8DCE97;
         --primary-text: #202020;
     }

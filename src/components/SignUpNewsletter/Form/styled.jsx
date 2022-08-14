@@ -51,10 +51,10 @@ export const EmailContainer = styled.div`
     }
 `;
 
-export const Button = styled.button`
+export const ButtonSuccess = styled.button`
     background-color: var(--yellow);
     padding: 2rem 1rem;
-    color: #fff;
+    color: var(--white);
     font-size: 1.6rem;
     font-weight: 600;
     border: 2px solid var(--yellow);
@@ -64,5 +64,48 @@ export const Button = styled.button`
     &:hover {
         background-color: transparent;
         color: var(--yellow);
+    }
+`;
+
+export const Button = styled.button`
+    background-color: var(--yellow);
+    opacity: 0.7;
+    cursor: not-allowed;
+    padding: 2rem 1rem;
+    color: var(--white);
+    font-size: 1.6rem;
+    font-weight: 600;
+    border: 2px solid var(--yellow);
+    transition: .3s;
+    flex-basis: 40%;
+
+    &:hover {
+        background-color: transparent;
+        color: var(--yellow);
+    }
+`;
+
+export const ErrorContainer = styled.section`
+    position: relative;
+    padding: 1rem 0;
+`;
+
+export const Error = styled.span`
+    color: red;
+    margin: 1rem 0;
+    display: inline-block;
+    font-size: 1.3rem;
+    background-color: #fade;
+    padding: 1rem .5rem;
+    border-radius: 7px;
+
+    &::before {
+        background: red;
+        content: '';
+        position: absolute;
+        padding: 0.3rem 0.9rem;
+        -webkit-clip-path: polygon(50% 0,0% 100%,100% 100%);
+        clip-path: polygon(50% 0,0% 100%,100% 100%);
+        top: 9px;
     }
 `;

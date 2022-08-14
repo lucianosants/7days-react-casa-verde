@@ -52,4 +52,4 @@ Acesse no navegador
 
 ## Acessar deploy
 
-<!-- [Casa Verde ↗️]('https://...') -->
+[Casa Verde ↗️](https://7days-react-casa-verde.vercel.app/)

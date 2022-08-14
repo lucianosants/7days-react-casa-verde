@@ -1,22 +1,14 @@
 import { 
-    Newsletter, ColA, ColB, FormArea, 
-    EmailContainer, Button, Subtitle, Title, 
-    TextContent 
+    Newsletter, ColA, 
+    ColB, Subtitle, 
+    Title, TextContent 
 } from './styled';
-
-
-import { MdOutlineEmail } from 'react-icons/md';
 
 import TreeImage from './TreeImage';
 import ShapeBackground from './ShapeBackground';
+import Form from './Form';
 
 export default function SignUpNewsletter() {
-    const handleSubmit = (e) => {
-        e.preventDefault();
-    };
-
-    const messageTitle = 'Digite seu email para assinar newsletter';
-    
     return(
         <div>
             <Newsletter>
@@ -35,20 +27,7 @@ export default function SignUpNewsletter() {
                         </TextContent>
 
                         <div className="input-area">
-                            <FormArea action={'/'}>
-                                <EmailContainer>
-                                    <label htmlFor="email" className='sr-only'>Email</label>
-                                    <input 
-                                     className="email-input"
-                                     type="email" 
-                                     placeholder="Insira seu e-mail"
-                                     id="email"
-                                     title={messageTitle}
-                                    />
-                                    <MdOutlineEmail />
-                                </EmailContainer>
-                                <Button onClick={handleSubmit}>Assinar newsletter</Button>
-                            </FormArea>
+                            <Form />
                         </div>
                     </div>
                 </ColA>

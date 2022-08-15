@@ -1,10 +1,14 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
+
+import emailjs from '@emailjs/browser';
 
 import { FormArea ,EmailContainer, Button, ButtonSuccess, Error, ErrorContainer } from './styled';
 
 import { MdOutlineEmail } from 'react-icons/md';
 
 export default function Form() {
+    const form = useRef();
+
     const messages = {
         messageTitle: 'Digite seu email para assinar newsletter',
         errorsMessages: {
@@ -18,7 +22,6 @@ export default function Form() {
     const [email, setEmail] = useState();
     const [errors, setErrors ] = useState(['E-mail não pode ficar vazio.']);
 
-    
     const validate = () => {
         const successMessage = `Obrigado pela sua assinatura, você receberá nossas novidades no e-mail ${email}`;
 
@@ -39,15 +42,32 @@ export default function Form() {
 
         if(email) alert(`${successMessage}`);
     };
+
+    const sendEmail = () => {
+        const serviceID = process.env.REACT_APP_YOUR_SERVICE_ID;
+        const templateID = process.env.REACT_APP_YOUR_TEMPLATE_ID;
+        const publickey = process.env.REACT_APP_YOUR_PUBLIC_KEY;
+
+        emailjs.sendForm(serviceID, templateID, form.current, publickey)
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
+    };
     
     const onHandleSubmit = (e) => {
         e.preventDefault();
         validate();
+        sendEmail();
     };
 
     return(
         <>
-            <FormArea onSubmit={onHandleSubmit}>
+            <FormArea 
+             ref={form}
+             onSubmit={onHandleSubmit}
+            >
                 <EmailContainer>
                     <label htmlFor="email" className='sr-only'>Email</label>
                     <input 
@@ -56,6 +76,7 @@ export default function Form() {
                     required
                     placeholder="Insira seu e-mail"
                     id="email"
+                    name="user_email"
                     onChange={(e) => setEmail(e.target.value)}
                     />
                     <MdOutlineEmail />
